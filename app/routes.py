@@ -26,14 +26,15 @@ def search():
 
     if query:
         cur.execute(f"""
-            SELECT site, keyword1, keyword2, keyword3, blog_link
+            SELECT site, keyword1, keyword2, keyword3, MAX(frequency) as frequency, blog_link
             FROM tour_contents
             WHERE {where_clause}
+            GROUP BY blog_link
+            ORDER BY frequency DESC
         """, [f'%{kw}%' for kw in params])
         print("SQL executed")
-        print(cur)
         rows = cur.fetchall()
-        print(len(rows))
-    return render_template('search.html', results=rows, query=query)
+        count = len(rows)
+    return render_template('search.html', results=rows, count=count, query=query)
     # return json.dumps(rows)
     # return json.dumps([dict(row) for row in rows], ensure_ascii=False)
