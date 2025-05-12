@@ -25,7 +25,7 @@
                 <td>{{ row['keyword1'] }}</td>
                 <td>{{ row['keyword2'] }}</td>
                 <td>{{ row['keyword3'] }}</td>
-                <td>{{ row['blog_link'] }}</td>
+                <td><a href="{{ row['blog_link'] }}" target="_blank">{{ row['blog_link'] }}</a></td>
             </tr>
             {% endfor %}
         </tbody>
