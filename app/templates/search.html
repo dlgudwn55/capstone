@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ query }}에 대한 검색결과</title>
+</head>
+<body>
+    <h1 style="text-align: center">{{ query }}에 대한 검색결과</h1>
+    {% if results %}
+    <table>
+        <thead>
+            <tr>
+                <th>관광지</th>
+                <th>키워드 1</th>
+                <th>키워드 2</th>
+                <th>키워드 3</th>
+                <th>관련 블로그</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in results %}
+            <tr>
+                <td>{{ row['site'] }}</td>
+                <td>{{ row['keyword1'] }}</td>
+                <td>{{ row['keyword2'] }}</td>
+                <td>{{ row['keyword3'] }}</td>
+                <td>{{ row['blog_link'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p style="text-align: center">검색 결과가 없습니다.</p>
+    {% endif %}
+</body>
+</html>

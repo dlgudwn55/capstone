@@ -34,6 +34,6 @@ def search():
         print(cur)
         rows = cur.fetchall()
         print(len(rows))
-    # return render_template('search.html', results=rows, query=query)
+    return render_template('search.html', results=rows, query=query)
     # return json.dumps(rows)
-    return json.dumps([dict(row) for row in rows], ensure_ascii=False)
+    # return json.dumps([dict(row) for row in rows], ensure_ascii=False)
