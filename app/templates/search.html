@@ -21,7 +21,13 @@
         <tbody>
             {% for row in results %}
             <tr>
-                <td>{{ row['site'] }}</td>
+                <td>
+                {% if row['site'] == "진달래군락지" %}
+                {{ row['site'] }}
+                {% else%}
+                <a href="https://map.naver.com/v5/search/{{ row['site']}}" target=_blank>{{ row['site'] }}</a>
+                {% endif %}                   
+                </td>
                 <td>{{ row['keyword1'] }}</td>
                 <td>{{ row['keyword2'] }}</td>
                 <td>{{ row['keyword3'] }}</td>
