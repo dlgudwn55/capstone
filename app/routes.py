@@ -26,8 +26,8 @@ def search():
 
     if query:
         cur.execute(f"""
-            SELECT site, keyword1, keyword2, keyword3, MAX(frequency) as frequency, blog_link
-            FROM tour_contents
+            SELECT site, keyword1, keyword2, keyword3, MAX(frequency) as frequency, blog_link, blog_title, blog_id
+            FROM tour_contents_v2
             WHERE {where_clause}
             GROUP BY blog_link
             ORDER BY frequency DESC
