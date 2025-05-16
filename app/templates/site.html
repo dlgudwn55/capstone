@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% for row in results %}
+    <h6><a href="{{ row['blog_link'] }}" target="_blank">{{ row['blog_title'] }}</a></h6>
+    {% endfor %}
+</body>
+</html>

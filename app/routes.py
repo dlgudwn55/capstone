@@ -36,5 +36,25 @@ def search():
         rows = cur.fetchall()
         count = len(rows)
     return render_template('search.html', results=rows, count=count, query=query)
-    # return json.dumps(rows)
-    # return json.dumps([dict(row) for row in rows], ensure_ascii=False)
+
+@main.route('/site')
+def site():
+    # 여행지 클릭하면 해당 여행지 관련 블로그 포스트 보기로 제목에 하이퍼링크가 된 것들이 랜덤으로 20개 표시
+    rows = []
+
+    query = request.args.get('q', '')
+    
+    conn = get_db_connection()
+    cur = conn.cursor()
+
+    if query:
+        cur.execute(f"""
+            SELECT DISTINCT blog_title, blog_link
+            FROM tour_contents_v2
+            WHERE site = ?
+            ORDER BY RANDOM()
+            LIMIT 10
+        """, (query,))
+        print("SQL executed")
+        rows = cur.fetchall()
+    return render_template('site.html', results=rows, query=query)
