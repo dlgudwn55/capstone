@@ -1,6 +1,6 @@
 import sqlite3
 
 def get_db_connection():
-    conn = sqlite3.connect('tour_v2.db')
+    conn = sqlite3.connect('tour_v3.db')
     conn.row_factory = sqlite3.Row
     return conn
