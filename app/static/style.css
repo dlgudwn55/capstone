@@ -51,7 +51,7 @@ header {
 }
 
 aside {
-    width: 200px;
+    width: 250px;
     background-color: #ffffff;
     padding: 20px;
     /* border-radius: 12px; */
@@ -80,22 +80,23 @@ aside h6 {
     align-items: center;
 } */
 
-.aside a {
-    margin-right: 10px;
-}
-
 .aside button {
     background-color: #ff7a00;
     color: white;
     padding: 0px 10px;
     border: none;
     border-radius: 2px;
-    font-size: 9px;
+    font-size: 12px;
     font-weight: bold;
     cursor: pointer;
 
     height: 20px;
     align-items: center;
+    text-align: center;
+}
+
+.aside button a {
+    color: white;
 }
 
 main {
@@ -164,4 +165,34 @@ td {
     overflow: hidden;
     text-overflow: ellipsis;
     vertical-align: top;
+}
+
+.modal {
+    /* display: none; */
+    /* 처음엔 숨김 */
+    position: absolute;
+    z-index: 999;
+    left: 20%;
+    top: 0;
+    width: 50%;
+    height: 50%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 30%;
+    text-align: center;
+    position: relative;
+}
+
+/* 이미지 */
+.modal-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
 }

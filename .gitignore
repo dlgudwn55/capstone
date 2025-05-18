@@ -29,6 +29,8 @@ ucinet/
 new_plan
 etc/
 캡스톤디자인 웹사이트 설계.docx
+*.png
+*.docx
 
 # ▶️ SQLite 데이터베이스
 *.db
