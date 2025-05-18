@@ -166,3 +166,15 @@ td {
     text-overflow: ellipsis;
     vertical-align: top;
 }
+
+.container .blog-title-container {
+    position: relative;
+}
+
+.site-blog-title {
+    display: block;
+    margin-top: 30px;
+    margin-left: 20%;
+    white-space: normal;
+    max-width: 800px;
+}

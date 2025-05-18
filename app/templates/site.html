@@ -3,11 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../static/style.css" />
+    <title>{{ query }}</title>
 </head>
 <body>
-    {% for row in results %}
-    <h6><a href="{{ row['blog_link'] }}" target="_blank">{{ row['blog_title'] }}</a></h6>
-    {% endfor %}
+    <a href="/">홈으로</a>
+    <form method="get" action="/search">
+        <input type="text" name="q" id="text-index" placeholder="검색할 키워드를 입력하세요" required />
+        <button id="button-index" type="submit">검색</button>
+    </form>
+    <header>
+        <h1 style="text-align: center">{{ query }}에 대한 블로그 포스트</h1>
+    </header>
+    <div class="container">
+        <aside class="aside">
+            <h3>추천 여행지</h3>
+            <h6>
+                <a href="/site?q=계명한학촌">계명한학촌</a>
+                <button><a href="../static/images/감성_계명한학촌.png" target="_blank">감성보기</a></button>
+            </h6>
+            <h6>
+                <a href="/site?q=고모역">고모역</a>
+                <button><a href="../static/images/감성_고모역.png" target="_blank">감성보기</a></button>
+            </h6>
+            <h6>
+                <a href="/site?q=대구아쿠아리움">대구아쿠아리움</a>
+                <button><a href="../static/images/감성_대구아쿠아리움.png" target="_blank">감성보기</a></button>
+            </h6>
+            <h6>
+                <a href="/site?q=대명유수지">대명유수지</a>
+                <button><a href="../static/images/감성_대명유수지.png" target="_blank">감성보기</a></button>
+            </h6>
+            <h6>
+                <a href="/site?q=도동서원">도동서원</a>
+                <button><a href="../static/images/감성_도동서원.png" target="_blank">감성보기</a></button>
+            </h6>
+            <h6>
+                <a href="/site?q=사문진">사문진</a>
+                <button><a href="../static/images/감성_사문진.png" target="_blank">감성보기</a></button>
+            </h6>
+            <h6>
+                <a href="/site?q=송해공원">송해공원</a>
+                <button><a href="../static/images/감성_송해공원.png" target="_blank">감성보기</a></button>
+            </h6>
+            <h6>
+                <a href="/site?q=신전뮤지엄">신전뮤지엄</a>
+                <button><a href="../static/images/감성_신전뮤지엄.png" target="_blank">감성보기</a></button>
+            </h6>
+            <h6>
+                <a href="/site?q=정호승문학관">정호승문학관</a>
+                <button><a href="../static/images/감성_정호승문학관.png" target="_blank">감성보기</a></button>
+            </h6>
+            <h6>
+                <a href="/site?q=진달래군락지">진달래군락지</a>
+                <button><a href="../static/images/감성_진달래군락지.png" target="_blank">감성보기</a></button>
+            </h6>
+        </aside>
+        <div class="blog-title-container">
+            {% for row in results %}
+            <h3 class="blog-title site-blog-title"><a href="{{ row['blog_link'] }}" target="_blank">{{ row['blog_title'] }}</a></h3>
+            {% endfor %}
+        </div>
+
+    </div>
+    
+    
+    
 </body>
 </html>
