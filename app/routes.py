@@ -50,7 +50,7 @@ def site():
     if query:
         cur.execute(f"""
             SELECT DISTINCT blog_title, blog_link
-            FROM tour_contents_v2
+            FROM tour_contents_v3
             WHERE site = ?
             ORDER BY RANDOM()
             LIMIT 10
