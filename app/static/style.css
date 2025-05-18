@@ -166,33 +166,3 @@ td {
     text-overflow: ellipsis;
     vertical-align: top;
 }
-
-.modal {
-    /* display: none; */
-    /* 처음엔 숨김 */
-    position: absolute;
-    z-index: 999;
-    left: 20%;
-    top: 0;
-    width: 50%;
-    height: 50%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.6);
-}
-
-.modal-content {
-    background-color: white;
-    margin: 10% auto;
-    padding: 20px;
-    border-radius: 8px;
-    width: 30%;
-    text-align: center;
-    position: relative;
-}
-
-/* 이미지 */
-.modal-content img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 6px;
-}
