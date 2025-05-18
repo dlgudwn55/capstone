@@ -66,10 +66,36 @@ aside h3 {
 }
 
 aside h6 {
+    display: flex;
+    align-items: center;
     font-size: 14px;
     margin: 8px 0;
     color: #333;
     cursor: pointer;
+    justify-content: space-between;
+}
+
+/* .aside h6 {
+    display: flex;
+    align-items: center;
+} */
+
+.aside a {
+    margin-right: 10px;
+}
+
+.aside button {
+    background-color: #ff7a00;
+    color: white;
+    padding: 0px 10px;
+    border: none;
+    border-radius: 2px;
+    font-size: 9px;
+    font-weight: bold;
+    cursor: pointer;
+
+    height: 20px;
+    align-items: center;
 }
 
 main {
