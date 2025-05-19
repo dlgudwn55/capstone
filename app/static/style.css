@@ -51,7 +51,7 @@ header {
 }
 
 aside {
-    width: 250px;
+    width: 300px;
     background-color: #ffffff;
     padding: 20px;
     /* border-radius: 12px; */
@@ -80,7 +80,7 @@ aside h6 {
     align-items: center;
 } */
 
-.aside button {
+.aside div button {
     background-color: #ff7a00;
     color: white;
     padding: 0px 10px;

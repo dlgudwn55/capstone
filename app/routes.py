@@ -215,3 +215,39 @@ def jindallae_sentiment_detail():
     sentiment = request.args.get('sentiment', '')
     data = get_data_from(table, sentiment)
     return render_template('sentiment_detail.html', results=data, table=table, sentiment=sentiment)
+
+# 추천콘텐츠
+@main.route('/recommend')
+def recommend():
+    rows = []
+
+    query = request.args.get('q', '')
+    keywords = query.split()
+    print(keywords)
+
+    if len(keywords) == 1:
+        where_clause = "keyword1 LIKE ?"
+        params = keywords
+    elif len(keywords) == 2:
+        where_clause = "keyword1 LIKE ? AND keyword2 LIKE ?"
+        params = keywords
+    else:
+        where_clause = "keyword1 LIKE ? AND keyword2 LIKE ? AND keyword3 LIKE ?"
+        params = keywords
+    print(params)
+    
+    conn = get_db_connection()
+    cur = conn.cursor()
+
+    if query:
+        cur.execute(f"""
+            SELECT site, keyword1, keyword2, keyword3, MAX(frequency) as frequency, blog_link, blog_title, blog_id
+            FROM tour_contents_v3
+            WHERE {where_clause}
+            GROUP BY blog_link
+            ORDER BY frequency DESC
+        """, [f'%{kw}%' for kw in params])
+        print("SQL executed")
+        rows = cur.fetchall()
+        count = len(rows)
+    return render_template('search.html', results=rows, count=count, query=query)
