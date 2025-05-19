@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css" />
+    <title>{{ table }}의 {{ sentiment }}에 관한 2-gram</title>
+</head>
+<body>
+    <a href="/">홈으로</a>
+    <header>
+        <h1 style="text-align: center">{{ table }}의 {{ sentiment }}에 관한 2-gram</h1>
+    </header>
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>키워드 1</th>
+                    <th>키워드 2</th>
+                    <th>빈도</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for word1, word2, weight in results %}
+                <tr>
+                    <td>{{ word1 }}</td>
+                    <td>{{ word2 }}</td>
+                    <td>{{ weight }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+</body>
+</html>
