@@ -1,6 +1,6 @@
 import sqlite3
 from flask import Blueprint, render_template, request, json
-from .db import get_db_connection, get_sentiment_db_connection
+from .db import get_db_connection, get_best_sentiment_db_connection
 
 main = Blueprint('main', __name__)
 
@@ -251,3 +251,22 @@ def recommend():
         rows = cur.fetchall()
         count = len(rows)
     return render_template('search.html', results=rows, count=count, query=query)
+
+
+# 감성어를 많이 언급한 관광지 추출(내림차순)
+@main.route('/sentiment_stats')
+def sentiment_stats():
+    query = request.args.get('q', '')
+
+    conn = get_best_sentiment_db_connection()
+    cur = conn.cursor()
+
+    cur.execute(f"""
+            SELECT [여행지명], [감성어], [빈도]
+            FROM best_sentiment_20
+            WHERE 감성어 = \"{query}\"
+            ORDER BY 빈도 DESC
+        """)
+    rows = cur.fetchall()
+
+    return render_template('best_sentiment.html', results=rows, query=query)

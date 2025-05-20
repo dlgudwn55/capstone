@@ -9,3 +9,8 @@ def get_sentiment_db_connection(site):
     conn = sqlite3.connect(f'bigram_{site}.db')
     conn.row_factory = sqlite3.Row
     return conn
+
+def get_best_sentiment_db_connection():
+    conn = sqlite3.connect('best_sentiment_20.db')
+    conn.row_factory = sqlite3.Row
+    return conn

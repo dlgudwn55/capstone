@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css" />
+    <title>{{ query }}에 대한 검색결과</title>
+</head>
+
+<body>
+    <a href="/">홈으로</a>
+    <form method="get" action="/search">
+        <input type="text" name="q" id="text-index" placeholder="검색할 키워드를 입력하세요" required />
+        <button id="button-index" type="submit">검색</button>
+    </form>
+    <header>
+        <h1 style="text-align: center">[{{ query }}]감성에 대한 여행지 순위</h1>
+    </header>
+    <div class="container">
+        {% if results %}
+        <table>
+            <thead>
+                <tr>
+                    <th>감성</th>
+                    <th>여행지</th>
+                    <th>빈도</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in results %}
+                <tr>
+                    <td>{{ row['감성어'] }}</td>
+                    <td>{{ row['여행지명'] }}</td>
+                    <td>{{ row['빈도'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p style="text-align: center">검색 결과가 없습니다.</p>
+        {% endif %}
+    </div>
+
+</body>
+
+</html>

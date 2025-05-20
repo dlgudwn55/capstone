@@ -200,3 +200,13 @@ td {
 .sentiment-container button a {
     color: white;
 }
+
+.button-container button {
+    height: 40px;
+    width: auto;
+    text-align: center;
+}
+
+.button-container button a {
+    color: white;
+}
